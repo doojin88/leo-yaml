@@ -13,10 +13,12 @@ public class FasterxmlYamlTest {
 
     @Test
     public void testYaml() throws IOException {
-        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+        YAMLFactory jf = new YAMLFactory();
+
+        ObjectMapper mapper = new ObjectMapper(jf);
 
         User user = mapper.readValue(new File("src/test/resources/user.yml"), User.class);
 
-        assertEquals("", user.toString());
+        assertEquals("Test User", user.getName());
     }
 }
